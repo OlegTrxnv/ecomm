@@ -1,7 +1,5 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
-// const usersRepo = require("./repositories/users");
 const authRouter = require("./routes/admin/auth");
 const adminProductsRouter = require("./routes/admin/products");
 const productsRouter = require("./routes/products");
@@ -11,12 +9,11 @@ const app = express();
 
 app.use(express.static("public"));
 
-app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cookieSession({
-    keys: ["I Love JavaScript!"]
+    keys: ["I Love JavaScript!"],
   })
 );
 
